@@ -7,7 +7,7 @@
     
 
     <title>
-      Android手机使用termux高速下载百度云 | Ctrl的小站 
+      MIUI官方系统如何Deodex MiuiSystemUI并修改状态栏网速刷新时间 | Ctrl的小站 
     </title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -16,17 +16,20 @@
     
     
 
-    <meta name="description" content="配置&amp;emsp;&amp;emsp;首先，下载并安装 termux,打开并等待termux初始化加载成功，不过速度比较缓慢，可以科学上网提高加载速度。配置完毕后按顺序输入下面命令,每输入一条都要回车： ①1apt update &amp;amp;&amp;amp; apt upgrade -y ②1apt install zip wget -y ③1termux-setup-storage ④1wget -O 1.zip">
+    <meta name="description" content="&amp;emsp;感谢酷安@MSM8998的教程，搬运并适当修改教程仅方便个人查看，如需查看原教程请使用酷安app打开原教程 准备工作 一台装有Windows 7及以上的PC  baksmali-xxx.jar、smali-xxx.jar.到这里下载最新的  AndroidDebugBridge(adb)的安装以及基本操作。可以到这里下载，安装程序可选将adb加入环境变量中  Java环境（相关配置请自">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android手机使用termux高速下载百度云 | Ctrl的小站">
+<meta property="og:title" content="MIUI官方系统如何Deodex MiuiSystemUI并修改状态栏网速刷新时间 | Ctrl的小站">
 <meta property="og:url" content="http://yoursite.com/2018/11/12/Deodex/index.html">
 <meta property="og:site_name" content="Ctrl的小站">
-<meta property="og:description" content="配置&amp;emsp;&amp;emsp;首先，下载并安装 termux,打开并等待termux初始化加载成功，不过速度比较缓慢，可以科学上网提高加载速度。配置完毕后按顺序输入下面命令,每输入一条都要回车： ①1apt update &amp;amp;&amp;amp; apt upgrade -y ②1apt install zip wget -y ③1termux-setup-storage ④1wget -O 1.zip">
+<meta property="og:description" content="&amp;emsp;感谢酷安@MSM8998的教程，搬运并适当修改教程仅方便个人查看，如需查看原教程请使用酷安app打开原教程 准备工作 一台装有Windows 7及以上的PC  baksmali-xxx.jar、smali-xxx.jar.到这里下载最新的  AndroidDebugBridge(adb)的安装以及基本操作。可以到这里下载，安装程序可选将adb加入环境变量中  Java环境（相关配置请自">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-11-12T11:31:40.105Z">
+<meta property="og:image" content="https://github.com/Sympaice/Sympaice.github.io/blob/master/images/USB%20Debug.png">
+<meta property="og:image" content="https://github.com/Sympaice/Sympaice.github.io/blob/master/images/%E6%8D%95%E8%8E%B7.PNG">
+<meta property="og:updated_time" content="2018-11-12T12:46:33.197Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android手机使用termux高速下载百度云 | Ctrl的小站">
-<meta name="twitter:description" content="配置&amp;emsp;&amp;emsp;首先，下载并安装 termux,打开并等待termux初始化加载成功，不过速度比较缓慢，可以科学上网提高加载速度。配置完毕后按顺序输入下面命令,每输入一条都要回车： ①1apt update &amp;amp;&amp;amp; apt upgrade -y ②1apt install zip wget -y ③1termux-setup-storage ④1wget -O 1.zip">
+<meta name="twitter:title" content="MIUI官方系统如何Deodex MiuiSystemUI并修改状态栏网速刷新时间 | Ctrl的小站">
+<meta name="twitter:description" content="&amp;emsp;感谢酷安@MSM8998的教程，搬运并适当修改教程仅方便个人查看，如需查看原教程请使用酷安app打开原教程 准备工作 一台装有Windows 7及以上的PC  baksmali-xxx.jar、smali-xxx.jar.到这里下载最新的  AndroidDebugBridge(adb)的安装以及基本操作。可以到这里下载，安装程序可选将adb加入环境变量中  Java环境（相关配置请自">
+<meta name="twitter:image" content="https://github.com/Sympaice/Sympaice.github.io/blob/master/images/USB%20Debug.png">
     
     
     
@@ -150,7 +153,7 @@ classes that you can use:
 
   <header class="post-header">
     
-    <h1 class="post-title">Android手机使用termux高速下载百度云</h1>
+    <h1 class="post-title">MIUI官方系统如何Deodex MiuiSystemUI并修改状态栏网速刷新时间</h1>
 
     
 
@@ -171,18 +174,44 @@ classes that you can use:
   </header>
 
   <section id="post-content" class="article-content post">
-    <p></p><h3>配置</h3><br><br>&emsp;&emsp;首先，下载并安装 <a href="https://www.coolapk.com/apk/com.termux" target="_blank" rel="noopener">termux</a>,打开并等待termux初始化加载成功，不过速度比较缓慢，可以科学上网提高加载速度。<br>配置完毕后按顺序输入下面命令,每输入一条都要回车：<p></p>
-<p></p><h5>①<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt update &amp;&amp; apt upgrade -y</span><br></pre></td></tr></table></figure><p></p>
-<p></p><h5>②<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install zip wget -y</span><br></pre></td></tr></table></figure><p></p>
-<p></p><h5>③<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">termux-setup-storage</span><br></pre></td></tr></table></figure><p></p>
-<p></p><h5>④<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -O 1.zip https://github.com/iikira/BaiduPCS-Go/releases/download/v3.5.6/BaiduPCS-Go-v3.5.6-android-21-arm64.zip</span><br></pre></td></tr></table></figure><p></p>
-<p></p><h5>⑤<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unzip 1.zip &amp;&amp; rm 1.zip</span><br></pre></td></tr></table></figure><p></p>
-<p></p><h5>⑥<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv BaiduPCS-Go-v3.5.6-android-21-arm64 BaiduPCS-Go</span><br></pre></td></tr></table></figure><p></p>
-<p></p><h5>⑦<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/BaiduPCS-Go &amp;&amp; ./BaiduPCS-Go</span><br></pre></td></tr></table></figure><p></p>
-<p></p><h5>⑧<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">config <span class="built_in">set</span> -savedir /sdcard/download</span><br></pre></td></tr></table></figure><p></p>
-<p></p><h5>⑨<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">login</span><br></pre></td></tr></table></figure><p></p>
-<p><strong>输入百度网盘账号（用户名/手机号/邮箱）<br>然后，输入密码<br>——由于密码为输入不可见，需事先复制到剪贴板，此时再粘贴。<br>接着，有的可能需要验证，输入验证码，回车，即可。<br>现在，配置结束，可以下载了</strong></p>
-</h5></h5></h5></h5></h5></h5></h5></h5></h5>
+    <p>&emsp;<code>感谢酷安@MSM8998的教程，搬运并适当修改教程仅方便个人查看，如需查看原教程请使用酷安app打开</code><a href="https://www.coolapk.com/feed/8262992" target="_blank" rel="noopener">原教程</a><br></p>
+<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><ul>
+<li><p>一台装有Windows 7及以上的PC</p>
+</li>
+<li><p>baksmali-xxx.jar、smali-xxx.jar.到<a href="https://bitbucket.org/JesusFreke/smali/downloads/" target="_blank" rel="noopener">这里</a>下载最新的</p>
+</li>
+<li><p>AndroidDebugBridge(adb)的安装以及基本操作。可以到<a href="https://androidfilehost.com/?fid=1322778262904007300" target="_blank" rel="noopener">这里</a>下载，安装程序可选将adb加入环境变量中</p>
+</li>
+<li><p>Java环境（相关配置请自行百度）</p>
+</li>
+</ul>
+<h1 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h1><ul>
+<li>打开设置——我的设备——全部参数，连击“MIUI版本”开启开发者选项，进入设置——更多设置——开发者选项，找到USB调试选项并打开，之后通过数据线将手机与电脑连接。</li>
+</ul>
+<p><img src="https://github.com/Sympaice/Sympaice.github.io/blob/master/images/USB%20Debug.png" alt="打开USB调试"></p>
+<ul>
+<li>在任意位置新建一个文件夹，比如[MIUI]，将下载的baksmali-xxx.jar和smali-xxx.jar放入文件夹内。</li>
+</ul>
+<p><img src="https://github.com/Sympaice/Sympaice.github.io/blob/master/images/%E6%8D%95%E8%8E%B7.PNG" alt="复制文件"></p>
+<ul>
+<li>点击文件夹的地址栏，复制文件夹的绝对路径，然后Win键+X打开菜单，点击<em>命令提示符(管理员)(A)</em> ，在窗口内输入<code>cd +刚才复制的路径</code>，回车后进入到MIUI文件夹内。然后使用下面的命令将所需要的文件逐一拉取到文件夹内。</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb pull /system/framework/</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb pull /system/priv-app/MiuiSystemUI/MiuiSystemUI.apk</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb pull /system/priv-app/MiuiSystemUI/oat/arm64/MiuiSystemUI.odex</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb pull /system/priv-app/MiuiSystemUI/oat/arm64/MiuiSystemUI.vdex</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>使用下面的命令反编译MiuiSystemUI.apk，会生成一个名为out的文件夹，我们所需要修改的smali文件就存放在这里面。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar baksmali-<span class="number">2.2</span>.5.jar x MiuiSystemUI.odex -d arm64/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>打开out文件夹下的<code>com\android\systemui\statusbar</code>路径，找到<code>NetworkSpeedView.smali</code>文件，使用notepad++或其他编辑器打开，Ctrl+F搜索0xfa0，改为0x3e8并保存。</p>
+</li>
+<li><p>使用下面的命令回编译smali文件，生成classes.dex文件。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -Xmx512M -jar smali-<span class="number">2.2</span>.5.jar a out -o classes.dex</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>-用压缩软件打开MuiSystemUI.apk,将刚才生成的classes.dex文件放入其中，你就得到了一个deodex的MuiSystemUI.apk，你可以将其直接拖入system文件夹进行替换或使用MT管理器进一步修改后替换。</p>
+
   </section>
 
   <section class="post-comments">
