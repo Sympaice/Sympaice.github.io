@@ -23,14 +23,10 @@
 <meta property="og:site_name" content="旧时月色在潇湘">
 <meta property="og:description" content="&amp;emsp;感谢酷安@MSM8998的教程，搬运并适当修改教程仅方便个人查看，如需查看原教程请使用酷安app打开原教程 准备工作 一台装有Windows 7及以上的PC  baksmali-xxx.jar、smali-xxx.jar.到这里下载最新的  AndroidDebugBridge(adb)的安装以及基本操作。可以到这里下载，安装程序可选将adb加入环境变量中  Java环境（相关配置请自">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/2018/11/12/Deodex/Deodex/USB%20Debug.png">
-<meta property="og:image" content="http://yoursite.com/2018/11/12/Deodex/Deodex/put%20files.PNG">
-<meta property="og:image" content="http://yoursite.com/2018/11/12/Deodex/Deodex/edit.PNG">
-<meta property="og:updated_time" content="2018-11-13T14:52:17.022Z">
+<meta property="og:updated_time" content="2018-11-14T05:27:10.962Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MIUI官方系统如何Deodex MiuiSystemUI并修改状态栏网速刷新时间 | 旧时月色在潇湘">
 <meta name="twitter:description" content="&amp;emsp;感谢酷安@MSM8998的教程，搬运并适当修改教程仅方便个人查看，如需查看原教程请使用酷安app打开原教程 准备工作 一台装有Windows 7及以上的PC  baksmali-xxx.jar、smali-xxx.jar.到这里下载最新的  AndroidDebugBridge(adb)的安装以及基本操作。可以到这里下载，安装程序可选将adb加入环境变量中  Java环境（相关配置请自">
-<meta name="twitter:image" content="http://yoursite.com/2018/11/12/Deodex/Deodex/USB%20Debug.png">
     
     
     
@@ -190,12 +186,12 @@ classes that you can use:
 <li>打开设置——我的设备——全部参数，连击“MIUI版本”开启开发者选项，进入设置——更多设置——开发者选项，找到USB调试选项并打开，之后通过数据线将手机与电脑连接。</li>
 </ul>
 <!-- ![打开USB调试](Deodex/USB Debug.png) -->
-<p><img src="Deodex/USB Debug.png" alt="打开USB调试" height="50%" width="50%" align="center"></p>
+<!-- <img src="Deodex/USB Debug.png" alt="打开USB调试" height="50%" width="50%" align="center"> -->
 <ul>
 <li>在任意位置新建一个文件夹，比如[MIUI]，将下载的baksmali-xxx.jar和smali-xxx.jar放入文件夹内。</li>
 </ul>
 <!-- ![复制文件](Deodex/put files.PNG) -->
-<p><img src="Deodex/put files.PNG" alt="复制文件"></p>
+<!-- <img src="Deodex/put files.PNG" alt="复制文件"> -->
 <ul>
 <li>点击文件夹的地址栏，复制文件夹的绝对路径，然后Win键+X打开菜单，点击<em>命令提示符(管理员)(A)</em> ，在窗口内输入<code>cd +刚才复制的路径</code>，回车后进入到MIUI文件夹内。然后使用下面的命令将所需要的文件逐一拉取到文件夹内。</li>
 </ul>
@@ -210,7 +206,7 @@ classes that you can use:
 <ul>
 <li>打开out文件夹下的<code>com\android\systemui\statusbar</code>路径，找到<code>NetworkSpeedView.smali</code>文件，使用notepad++或其他编辑器打开，Ctrl+F搜索0xfa0，改为0x3e8并保存。</li>
 </ul>
-<p><img src="Deodex/edit.PNG" alt="编辑文件"></p>
+<!-- ![编辑文件](Deodex/edit.PNG) -->
 <ul>
 <li>使用下面的命令回编译smali文件，生成classes.dex文件。</li>
 </ul>
