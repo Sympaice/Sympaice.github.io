@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      MIUI官方系统如何Deodex MiuiSystemUI并修改状态栏网速刷新时间 | 旧时月色在潇湘 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="Ctrl">
+    
+    
+
+    <meta name="description" content="&amp;emsp;感谢酷安@MSM8998的教程，搬运并适当修改教程仅方便个人查看，如需查看原教程请使用酷安app打开原教程 准备工作 一台装有Windows 7及以上的PC  baksmali-xxx.jar、smali-xxx.jar.到这里下载最新的  AndroidDebugBridge(adb)的安装以及基本操作。可以到这里下载，安装程序可选将adb加入环境变量中  Java环境（相关配置请自">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MIUI官方系统如何Deodex MiuiSystemUI并修改状态栏网速刷新时间 | 旧时月色在潇湘">
+<meta property="og:url" content="http://yoursite.com/2018/11/12/Deodex/index.html">
+<meta property="og:site_name" content="旧时月色在潇湘">
+<meta property="og:description" content="&amp;emsp;感谢酷安@MSM8998的教程，搬运并适当修改教程仅方便个人查看，如需查看原教程请使用酷安app打开原教程 准备工作 一台装有Windows 7及以上的PC  baksmali-xxx.jar、smali-xxx.jar.到这里下载最新的  AndroidDebugBridge(adb)的安装以及基本操作。可以到这里下载，安装程序可选将adb加入环境变量中  Java环境（相关配置请自">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2018/11/12/Deodex/Deodex/USB%20Debug.png">
+<meta property="og:image" content="http://yoursite.com/2018/11/12/Deodex/Deodex/put%20files.PNG">
+<meta property="og:image" content="http://yoursite.com/2018/11/12/Deodex/Deodex/edit.PNG">
+<meta property="og:updated_time" content="2018-11-13T14:52:17.022Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MIUI官方系统如何Deodex MiuiSystemUI并修改状态栏网速刷新时间 | 旧时月色在潇湘">
+<meta name="twitter:description" content="&amp;emsp;感谢酷安@MSM8998的教程，搬运并适当修改教程仅方便个人查看，如需查看原教程请使用酷安app打开原教程 准备工作 一台装有Windows 7及以上的PC  baksmali-xxx.jar、smali-xxx.jar.到这里下载最新的  AndroidDebugBridge(adb)的安装以及基本操作。可以到这里下载，安装程序可选将adb加入环境变量中  Java环境（相关配置请自">
+<meta name="twitter:image" content="http://yoursite.com/2018/11/12/Deodex/Deodex/USB%20Debug.png">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">旧时月色在潇湘</a></h1>
+        <hr class="panel-cover__divider">
+
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">MIUI官方系统如何Deodex MiuiSystemUI并修改状态栏网速刷新时间</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2018-11-12" class="post-meta__date date">2018-11-12</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <p>&emsp;<code>感谢酷安@MSM8998的教程，搬运并适当修改教程仅方便个人查看，如需查看原教程请使用酷安app打开</code><a href="https://www.coolapk.com/feed/8262992" target="_blank" rel="noopener">原教程</a><br></p>
+<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><ul>
+<li><p>一台装有Windows 7及以上的PC</p>
+</li>
+<li><p>baksmali-xxx.jar、smali-xxx.jar.到<a href="https://bitbucket.org/JesusFreke/smali/downloads/" target="_blank" rel="noopener">这里</a>下载最新的</p>
+</li>
+<li><p>AndroidDebugBridge(adb)的安装以及基本操作。可以到<a href="https://androidfilehost.com/?fid=1322778262904007300" target="_blank" rel="noopener">这里</a>下载，安装程序可选将adb加入环境变量中</p>
+</li>
+<li><p>Java环境（相关配置请自行百度）</p>
+</li>
+</ul>
+<h1 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h1><ul>
+<li>打开设置——我的设备——全部参数，连击“MIUI版本”开启开发者选项，进入设置——更多设置——开发者选项，找到USB调试选项并打开，之后通过数据线将手机与电脑连接。</li>
+</ul>
+<!-- ![打开USB调试](Deodex/USB Debug.png) -->
+<p><img src="Deodex/USB Debug.png" alt="打开USB调试" height="50%" width="50%" align="center"></p>
+<ul>
+<li>在任意位置新建一个文件夹，比如[MIUI]，将下载的baksmali-xxx.jar和smali-xxx.jar放入文件夹内。</li>
+</ul>
+<!-- ![复制文件](Deodex/put files.PNG) -->
+<p><img src="Deodex/put files.PNG" alt="复制文件"></p>
+<ul>
+<li>点击文件夹的地址栏，复制文件夹的绝对路径，然后Win键+X打开菜单，点击<em>命令提示符(管理员)(A)</em> ，在窗口内输入<code>cd +刚才复制的路径</code>，回车后进入到MIUI文件夹内。然后使用下面的命令将所需要的文件逐一拉取到文件夹内。</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb pull /system/framework/</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb pull /system/priv-app/MiuiSystemUI/MiuiSystemUI.apk</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb pull /system/priv-app/MiuiSystemUI/oat/arm64/MiuiSystemUI.odex</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb pull /system/priv-app/MiuiSystemUI/oat/arm64/MiuiSystemUI.vdex</span><br></pre></td></tr></table></figure>
+<ul>
+<li>使用下面的命令反编译MiuiSystemUI.apk，会生成一个名为out的文件夹，我们所需要修改的smali文件就存放在这里面。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar baksmali-<span class="number">2.2</span>.5.jar x MiuiSystemUI.odex -d arm64/</span><br></pre></td></tr></table></figure>
+<ul>
+<li>打开out文件夹下的<code>com\android\systemui\statusbar</code>路径，找到<code>NetworkSpeedView.smali</code>文件，使用notepad++或其他编辑器打开，Ctrl+F搜索0xfa0，改为0x3e8并保存。</li>
+</ul>
+<p><img src="Deodex/edit.PNG" alt="编辑文件"></p>
+<ul>
+<li>使用下面的命令回编译smali文件，生成classes.dex文件。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -Xmx512M -jar smali-<span class="number">2.2</span>.5.jar a out -o classes.dex</span><br></pre></td></tr></table></figure>
+<p>-用压缩软件打开MuiSystemUI.apk,将刚才生成的classes.dex文件放入其中，你就得到了一个deodex的MuiSystemUI.apk，你可以将其直接拖入system文件夹进行替换或使用MT管理器进一步修改后替换。</p>
+
+  </section>
+
+  <section class="post-comments">
+
+    <!-- 将评论系统（例如Disqus、多说、友言、畅言等）提供的代码片段粘贴在这里 -->
+    
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>
